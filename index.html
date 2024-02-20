@@ -14,7 +14,12 @@
                 margin: 20px;
                 text-align: center;
             }
-        </style>
+    </style>
+    <script>
+        if('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('service-worker.js');
+        };
+    </script>
 </head>
 <body>
     <div id="app">
