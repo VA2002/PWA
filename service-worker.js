@@ -3,6 +3,7 @@ var cacheFiles = [
     "index.html",
     "product.js",
     "petstore.webmanifest",
+    "cat.jpg",
     "image/yarn.jpg",
     "images/cat-litter.jpg",
     "images/laser-pointer.jpg",
@@ -17,6 +18,15 @@ self.addEventListener('install', (e) => {
         caches.open(cacheName).then((cache) => {
             console.log("[Service Worker] Caching all files");
             return cache.addAll(cacheFiles);
+        })
+    );
+});
+
+self.addEventListener('fetch', function(e) {
+    e.respondWith(
+        caches.match(e.request).then(function(r) {
+            console.log('[Service Worker] Fetching Resource: ' + e.request.url);
+            return r;
         })
     );
 });
