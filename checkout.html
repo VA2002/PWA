@@ -5,17 +5,9 @@
     <script src="https://unpkg.com/vue"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
     <script src="products.js"></script>
-    <link rel = "manifest" href = "pretstore.webmanifest">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-    <style>
-            .product {
-                border: 1px grey solid;
-                padding: 20px;
-                margin: 20px;
-                text-align: center;
-            }
-        </style>
 </head>
+
 <body>
     <div id="app">
         <header>
@@ -28,7 +20,6 @@
         <main>
             <div v-if='showProduct'>
                 <div v-for="product in sortedProducts">
-                    <div class = "product">
                     <h2 v-text="product.title"></h2>
                     <figure>
                         <img v-bind:src="product.image">
@@ -57,7 +48,6 @@
                         
                         <span v-for='n in 5-product.rating'>☆</span>
                     </div>
-                </div>
                 </div>
             </div>
             <div v-else>
@@ -132,7 +122,7 @@
             </div>
         </main>
     </div>
-    <script src="product.js"></script>
+
     <script type="text/javascript">
         var webstore = new Vue({
             el: '#app',
